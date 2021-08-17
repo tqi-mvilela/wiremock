@@ -1,0 +1,18 @@
+{
+  "mappings": [
+    {
+      "request": {
+        "method": "POST",
+        "urlPathPattern": "/send-email",
+        "bodyPatterns" : [
+          { "matchesJsonPath" : "$.applicationId" },
+          { "matchesJsonPath" : "$.email" },
+          { "matchesJsonPath" : "$..[?(@.applicationId != null || @.email != null)]" }
+        ]
+      },
+      "response": {
+        "status": 200
+      }
+    }
+  ]
+}

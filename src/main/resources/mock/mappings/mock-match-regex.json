@@ -1,0 +1,14 @@
+{
+  "mappings": [
+    {
+      "request": {
+        "method": "GET",
+        "urlPathPattern": "/first-name/([a-zA-Z]*)"
+      },
+      "response": {
+        "status": 200,
+        "body": "JOSE DA SILVA"
+      }
+    }
+  ]
+}

@@ -1,0 +1,78 @@
+{
+  "mappings": [
+    {
+      "request": {
+        "method": "POST",
+        "urlPathPattern": "/boleto",
+        "bodyPatterns": [
+          {
+            "matchesJsonPath": {
+              "expression": "$..codigo",
+              "contains": "1"
+            }
+          }
+        ]
+      },
+      "response": {
+        "status": 400,
+        "headers": {
+          "Content-Type": "application/json;charset=UTF-8"
+        },
+        "jsonBody": [
+          {
+            "errorCode": "100"
+          }
+        ]
+      }
+    },
+    {
+      "request": {
+        "method": "POST",
+        "urlPathPattern": "/boleto",
+        "bodyPatterns": [
+          {
+            "matchesJsonPath": {
+              "expression": "$..codigo",
+              "contains": "2"
+            }
+          }
+        ]
+      },
+      "response": {
+        "status": 400,
+        "headers": {
+          "Content-Type": "application/json;charset=UTF-8"
+        },
+        "jsonBody": [
+          {
+            "errorMessage": "Codigo invalido"
+          }
+        ]
+      }
+    },
+    {
+      "request": {
+        "method": "POST",
+        "urlPathPattern": "/boleto",
+        "bodyPatterns": [
+          {
+            "matchesJsonPath": {
+              "expression": "$..codigo",
+              "contains": "3"
+            }
+          }
+        ]
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "Content-Type": "application/json;charset=UTF-8"
+        },
+        "jsonBody": {
+          "barCode": "{{randomValue length=40 type='NUMERIC'}}"
+        },
+        "transformers": ["response-template"]
+      }
+    }
+  ]
+}

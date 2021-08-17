@@ -1,0 +1,26 @@
+{
+  "mappings": [
+    {
+      "request": {
+        "method": "POST",
+        "urlPathPattern": "/debts"
+      },
+      "response": {
+        "status": 200,
+        "jsonBody": {
+          "amount": "{{jsonPath request.body '$.amount'}}",
+          "code": "{{randomValue type='UUID'}}",
+          "sent_at": "{{now timezone='America/Montevideo' format='yyyy-MM-dd HH:mm:ss'}}",
+          "created_at": "{{now timezone='America/Montevideo' format='yyyy-MM-dd'}}",
+          "expires_at": "{{now timezone='America/Montevideo' offset='2 days' format='yyyy-MM-dd'}}",
+          "client_code": "{{jsonPath request.body '$.client_code'}}",
+          "reference_code": "{{randomValue type='UUID'}}"
+        },
+        "transformers": ["response-template"],
+        "headers": {
+          "Content-Type": "application/json;charset=UTF-8"
+        }
+      }
+    }
+  ]
+}
