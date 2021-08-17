@@ -1,0 +1,14 @@
+version: "3"
+
+services:
+
+  wiremock:
+    container_name: wiremock
+    image: rodolpheche/wiremock:2.25.1
+    ports:
+      - "3001:8080"
+    volumes:
+      - ./src/main/resources/mock:/home/wiremock
+    command:
+      - -verbose
+      - -global-response-templating
