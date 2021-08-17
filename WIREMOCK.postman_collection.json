@@ -1,0 +1,133 @@
+{
+	"info": {
+		"_postman_id": "0a509f58-e554-401c-94fb-6d4f387ef20d",
+		"name": "WIREMOCK",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Retorno randomico",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n     \"amount\": 100.00,\n     \"customer_code\": \"ABC-1234567890\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3001/debts",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"debts"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Match por nome campo/validacao",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n     \"applicationId\": \"234038432823\",\n     \"email\": \"tqi_mvilela@uolinc.com\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3001/send-email",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"send-email"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Match por valor campo",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"partnerAccountCode\": 1\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3001/boleto",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"boleto"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Match por lista/array",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3001/zip-code/38400648",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"zip-code",
+						"38400648"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Match por regex",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3001/name/JOSE",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"name",
+						"JOSE"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
